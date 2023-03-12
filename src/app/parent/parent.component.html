@@ -1,0 +1,9 @@
+<hr>
+<h3 [ngStyle]="{color: color}">parent works!</h3>
+<app-child [dataFromParent] = "dataFromParent" (colorSelected)="changeColor($event)" ></app-child>
+<app-child-one (ChildOneDataEmit) = "getDataFromChildOne($event)"></app-child-one>
+<!-- <app-child-one (ChildOneDataEmit) = "childOneData = $event" ></app-child-one> -->
+<app-child-two *ngIf="childOneData; else infoText" [childOneData] = "childOneData"></app-child-two>
+<!-- <app-child-two *ngIf="childOneData; else infoText" (ChildTwoDataEmit) = "childOneDataEmitted($event)"></app-child-two> -->
+<ng-template #infoText>No data passed yet.</ng-template>
+<hr>
